@@ -209,10 +209,13 @@ function App() {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/run-agent", {
-        method: "POST",
-        body: formData,
-      })
+      const response = await fetch(
+  "https://automatic-spoon-4jpvp5x6q9gr37qx5-8000.app.github.dev/run-agent",
+  {
+    method: "POST",
+    body: formData,
+  }
+);
 
       const data = await response.json()
       setResult(data.analysis)
@@ -343,7 +346,7 @@ function App() {
                       strokeDashoffset={535 - (535 * (result.fairness_score || 0)) / 100}
                       strokeLinecap="round"
                       initial={{ strokeDashoffset: 535 }}
-                      animate={{
+                      animate={{                        
                         strokeDashoffset:
                           535 - (535 * (result.fairness_score || 0)) / 100,
                       }}
